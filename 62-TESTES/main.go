@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+///teste como e teste em tabela
 func main() {
 	x := Soma(36, 65, 542, 98)
 	y := mult(10)

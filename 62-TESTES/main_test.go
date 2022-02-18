@@ -1,10 +1,23 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 type test struct {
 	data   []int
 	answer int
+}
+
+func ExampleSoma() {
+	fmt.Println(Soma(2, 2, 5, 6))
+	fmt.Println(Soma(2, 2, 5, 12))
+	fmt.Println(Soma(2, 2, 5, 9))
+	// Output:
+	//15
+	//21
+	//18
 }
 
 func TestSomaEmTabela(t *testing.T) {
@@ -18,6 +31,12 @@ func TestSomaEmTabela(t *testing.T) {
 		if z != v.answer {
 			t.Error("esperado:", v.answer, "recebido", z)
 		}
+	}
+}
+
+func BenchmarkSoma(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Soma(10 + 10)
 	}
 }
 
